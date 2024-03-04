@@ -60,6 +60,7 @@ namespace LogisticsTrack.API
 
             ValidationExtensions.Configure(app.Services); // we need to call this method to configure the validation extensions
             app.Run();
+            DummyData.FillDatabase(); // we fill the database with some dummy data
         }
     }
 }

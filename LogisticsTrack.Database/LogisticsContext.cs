@@ -1,10 +1,12 @@
 ﻿using LogisticsTrack.Domain;
 using LogisticsTrack.Domain.BaseEntities;
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 
 namespace LogisticsTrack.Database
 {
+
     public class LogisticsContext : DbContext
     {
         public DbSet<Driver> Drivers { get; set; }
