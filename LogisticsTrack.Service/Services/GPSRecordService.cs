@@ -7,7 +7,8 @@ using LogisticsTrack.Service.Exceptions;
 using Microsoft.EntityFrameworkCore;
 
 namespace LogisticsTrack.Service.Services
-{
+{ 
+
     public class GPSRecordService : BaseService<GPSRecord, GPSRecordDTO, GPSRecordDTO, GPSRecordBMO>
     {
         public Guid? TruckPlanId { get; set; }
