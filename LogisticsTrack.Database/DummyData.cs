@@ -52,16 +52,30 @@ namespace LogisticsTrack.Database
 
             };
 
+            for (int i = 0; i < 10; i++)
+            {
+                drivers = drivers.Append(new Driver { Name = "John Doe" + i, Birthdate = new System.DateTime(1970, 1, 1) }).ToArray();
+                trucks = trucks.Append(new Truck { LicensePlate = "ABC-123" + i, GPSDeviceId = "GPS-123" + i }).ToArray();
+                truckPlans = truckPlans.Append(new TruckPlan { Driver = drivers[i + 4], Truck = trucks[i + 4], StartDate = new System.DateTime(2021, 1, 1) }).ToArray();
+              
+                for (int j = 1; j < 100; j++)
+                {
+                    gpsRecords = gpsRecords.Append(new GPSRecord { Latitude = 1.0 + j, Longitude = 1.0 + j, Timestamp = new System.DateTime(2021, 1, 1).AddMinutes(j * 5), TruckPlan = truckPlans[i + 4] }).ToArray();
+                }
+            }
+
+
             // now we instantiate the context and add the data
             using (var context = new LogisticsContext(new DbContextOptionsBuilder<LogisticsContext>()
-                               .UseInMemoryDatabase("LogisticsTrack")
+                               .UseInMemoryDatabase("LogisticsTrackDb")
                                               .Options))
             {
                 context.Drivers.AddRange(drivers);
                 context.Trucks.AddRange(trucks);
                 context.TruckPlans.AddRange(truckPlans);
                 context.GPSRecords.AddRange(gpsRecords);
-                context.SaveChanges();
+                var test = context.SaveChanges();
+             
             }
         }
     }

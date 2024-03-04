@@ -19,6 +19,17 @@ namespace LogisticsTrack.API.Controllers.v1
             _entityService = entityService;
         }
 
+        // GET: api/v1/TruckPlan/{guid}/Distance
+        [HttpGet]
+        [Route("{truckPlanId:guid}/Distance")]
+        [ProducesDefaultResponseType(typeof(double))]
+        public async Task<IActionResult> GetTruckPlanDistance(Guid truckPlanId)
+        {
+            _entityService.TruckPlanId = truckPlanId;
+            var distance = await _entityService.CalculateDistanceDrivenAsync();
+            return Ok(distance);
+        }
+
         // GET: api/v1/TruckPlan/{guid}/GPSRecord
         [HttpGet]
         [Route("{truckPlanId:guid}/GPSRecord")]
