@@ -18,6 +18,8 @@ namespace LogisticsTrack.Domain
         public double Latitude { get; set; }
         [Required]
         public double Longitude { get; set; }
+
+        public string? Country { get; set; }
     }
 
 }

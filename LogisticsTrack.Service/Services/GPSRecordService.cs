@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using GraphQL;
+using GraphQL.Types;
 using LogisticsTrack.Database.Repository;
 using LogisticsTrack.Domain;
 using LogisticsTrack.Domain.BMOModels;
@@ -7,15 +9,17 @@ using LogisticsTrack.Service.Exceptions;
 using Microsoft.EntityFrameworkCore;
 
 namespace LogisticsTrack.Service.Services
-{ 
-
+{
+    
     public class GPSRecordService : BaseService<GPSRecord, GPSRecordDTO, GPSRecordDTO, GPSRecordBMO>
     {
+        private readonly GeocodingService _geocodingService;
+
         public Guid? TruckPlanId { get; set; }
 
-        public GPSRecordService(Repository<GPSRecord> repository, IMapper mapper) : base(repository, mapper)
+        public GPSRecordService(Repository<GPSRecord> repository, IMapper mapper, GeocodingService geocodingService) : base(repository, mapper)
         {
-
+            _geocodingService = geocodingService;
         }
 
         protected override IQueryable<GPSRecord> GetAllEntitiesBase()
@@ -26,9 +30,17 @@ namespace LogisticsTrack.Service.Services
             return base.GetAllEntitiesBase().Where(a => a.TruckPlandId == this.TruckPlanId);
         }
 
-        public async Task<double> CalculateDistanceDrivenAsync()
+        protected override async Task UpdateEntity(GPSRecord entity, GPSRecordBMO updateModel, bool created = false)
         {
-            var gpsRecords = await GetAllEntities().OrderBy(r => r.Timestamp)
+            var address = await _geocodingService.GetCountryFromCoordinates(updateModel.Latitude, updateModel.Longitude).ConfigureAwait(false);
+            entity.Country = address?.ToLowerInvariant(); // best solution is to lookup the country prior to saving and save that data
+
+            await base.UpdateEntity(entity, updateModel, created).ConfigureAwait(false);
+        }
+
+        public async Task<double> CalculateDistanceDrivenAsync(List<GPSRecord> records = null)
+        {
+            var gpsRecords = records ?? await GetAllEntities().OrderBy(r => r.Timestamp)
                 .ToListAsync().ConfigureAwait(false);
 
             double totalDistance = 0.0;
@@ -54,7 +66,7 @@ namespace LogisticsTrack.Service.Services
             // potential improvement: use a library like GeoCoordinate to calculate the distance
             // use google maps api to calculate the distance
             // or other algorithms like Vincenty formula: https://en.wikipedia.org/wiki/Vincenty%27s_formulae
-
+            
 
             // here im following the haversine formula proof from the Wikipedia page
             const double R = 6371e3; // Earth's radius in meters

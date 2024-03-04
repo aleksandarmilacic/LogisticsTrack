@@ -31,24 +31,24 @@ namespace LogisticsTrack.Database
             };
             var gpsRecords = new GPSRecord[]
             {
-                new GPSRecord { Latitude = 1.0, Longitude = 1.0, Timestamp = new System.DateTime(2021, 1, 1), TruckPlan = truckPlans[0] },
-                new GPSRecord { Latitude = 1.1, Longitude = 1.1, Timestamp = new System.DateTime(2021, 1, 1), TruckPlan = truckPlans[0] },
-                new GPSRecord { Latitude = 1.2, Longitude = 1.2, Timestamp = new System.DateTime(2021, 1, 2), TruckPlan = truckPlans[0] },
-                new GPSRecord { Latitude = 1.3, Longitude = 1.3, Timestamp = new System.DateTime(2021, 1, 3), TruckPlan = truckPlans[0] },
-                new GPSRecord { Latitude = 1.4, Longitude = 1.4, Timestamp = new System.DateTime(2021, 1, 4), TruckPlan = truckPlans[0] },
-                new GPSRecord { Latitude = 1.5, Longitude = 1.5, Timestamp = new System.DateTime(2021, 1, 5), TruckPlan = truckPlans[0] },
-                new GPSRecord { Latitude = 1.6, Longitude = 1.6, Timestamp = new System.DateTime(2021, 1, 6), TruckPlan = truckPlans[0] },
-                new GPSRecord { Latitude = 1.7, Longitude = 1.7, Timestamp = new System.DateTime(2021, 1, 7), TruckPlan = truckPlans[0] },
-                new GPSRecord { Latitude = 1.8, Longitude = 1.8, Timestamp = new System.DateTime(2021, 1, 8), TruckPlan = truckPlans[0] },
-                new GPSRecord { Latitude = 1.8, Longitude = 1.88, Timestamp = new System.DateTime(2021, 1, 8), TruckPlan = truckPlans[0] },
-                new GPSRecord { Latitude = 1.9, Longitude = 1.9, Timestamp = new System.DateTime(2021, 1, 9), TruckPlan = truckPlans[0] },
-                new GPSRecord { Latitude = 2.0, Longitude = 2.0, Timestamp = new System.DateTime(2021, 1, 10), TruckPlan = truckPlans[0] },
-                new GPSRecord { Latitude = 2.1, Longitude = 2.1, Timestamp = new System.DateTime(2021, 1, 11), TruckPlan = truckPlans[0] },
-                new GPSRecord { Latitude = 2.2, Longitude = 2.2, Timestamp = new System.DateTime(2021, 1, 12), TruckPlan = truckPlans[0] },
-                new GPSRecord { Latitude = 2.3, Longitude = 2.3, Timestamp = new System.DateTime(2021, 1, 13), TruckPlan = truckPlans[0] },
-                new GPSRecord { Latitude = 2.0, Longitude = 2.0, Timestamp = new System.DateTime(2021, 1, 2), TruckPlan = truckPlans[1] },
-                new GPSRecord { Latitude = 3.0, Longitude = 3.0, Timestamp = new System.DateTime(2021, 1, 3), TruckPlan = truckPlans[2] },
-                new GPSRecord { Latitude = 4.0, Longitude = 4.0, Timestamp = new System.DateTime(2021, 1, 4), TruckPlan = truckPlans[3] },
+                new GPSRecord { Country= "denmark", Latitude = 1.0, Longitude = 1.0, Timestamp = new System.DateTime(2021, 1, 1), TruckPlan = truckPlans[0] },
+                new GPSRecord { Country= "denmark", Latitude = 1.1, Longitude = 1.1, Timestamp = new System.DateTime(2021, 1, 1), TruckPlan = truckPlans[0] },
+                new GPSRecord { Country= "denmark", Latitude = 1.2, Longitude = 1.2, Timestamp = new System.DateTime(2021, 1, 2), TruckPlan = truckPlans[0] },
+                new GPSRecord { Country= "denmark", Latitude = 1.3, Longitude = 1.3, Timestamp = new System.DateTime(2021, 1, 3), TruckPlan = truckPlans[0] },
+                new GPSRecord { Country= "denmark", Latitude = 1.4, Longitude = 1.4, Timestamp = new System.DateTime(2021, 1, 4), TruckPlan = truckPlans[0] },
+                new GPSRecord { Country= "denmark", Latitude = 1.5, Longitude = 1.5, Timestamp = new System.DateTime(2021, 1, 5), TruckPlan = truckPlans[0] },
+                new GPSRecord { Country= "denmark", Latitude = 1.6, Longitude = 1.6, Timestamp = new System.DateTime(2021, 1, 6), TruckPlan = truckPlans[0] },
+                new GPSRecord { Country= "denmark", Latitude = 1.7, Longitude = 1.7, Timestamp = new System.DateTime(2021, 1, 7), TruckPlan = truckPlans[0] },
+                new GPSRecord { Country= "denmark", Latitude = 1.8, Longitude = 1.8, Timestamp = new System.DateTime(2021, 1, 8), TruckPlan = truckPlans[0] },
+                new GPSRecord { Country= "denmark", Latitude = 1.8, Longitude = 1.88, Timestamp = new System.DateTime(2021, 1, 8), TruckPlan = truckPlans[0] },
+                new GPSRecord { Country= "denmark", Latitude = 1.9, Longitude = 1.9, Timestamp = new System.DateTime(2021, 1, 9), TruckPlan = truckPlans[0] },
+                new GPSRecord { Country= "denmark", Latitude = 2.0, Longitude = 2.0, Timestamp = new System.DateTime(2021, 1, 10), TruckPlan = truckPlans[0] },
+                new GPSRecord { Country= "denmark", Latitude = 2.1, Longitude = 2.1, Timestamp = new System.DateTime(2021, 1, 11), TruckPlan = truckPlans[0] },
+                new GPSRecord { Country= "denmark", Latitude = 2.2, Longitude = 2.2, Timestamp = new System.DateTime(2021, 1, 12), TruckPlan = truckPlans[0] },
+                new GPSRecord { Country= "denmark", Latitude = 2.3, Longitude = 2.3, Timestamp = new System.DateTime(2021, 1, 13), TruckPlan = truckPlans[0] },
+                new GPSRecord { Country= "denmark", Latitude = 2.0, Longitude = 2.0, Timestamp = new System.DateTime(2021, 1, 2), TruckPlan = truckPlans[1] },
+                new GPSRecord { Country= "denmark", Latitude = 3.0, Longitude = 3.0, Timestamp = new System.DateTime(2021, 1, 3), TruckPlan = truckPlans[2] },
+                new GPSRecord { Country= "denmark", Latitude = 4.0, Longitude = 4.0, Timestamp = new System.DateTime(2021, 1, 4), TruckPlan = truckPlans[3] },
 
             };
 
@@ -60,7 +60,7 @@ namespace LogisticsTrack.Database
               
                 for (int j = 1; j < 100; j++)
                 {
-                    gpsRecords = gpsRecords.Append(new GPSRecord { Latitude = 1.0 + j, Longitude = 1.0 + j, Timestamp = new System.DateTime(2021, 1, 1).AddMinutes(j * 5), TruckPlan = truckPlans[i + 4] }).ToArray();
+                    gpsRecords = gpsRecords.Append(new GPSRecord { Country = "germany", Latitude = 1.0 + j, Longitude = 1.0 + j, Timestamp = new System.DateTime(2021, 1, 1).AddMinutes(j * 5), TruckPlan = truckPlans[i + 4] }).ToArray();
                 }
             }
 

@@ -35,6 +35,7 @@ namespace LogisticsTrack.Service.Services
 
         // this is my off the top of my head solution to the problem of checking if a trip is relevant to a country
         // I would need to know more about the business logic to provide a more accurate solution
+        // i think it is a bad approach to overload the api with requests for every single point in the trip
         public async Task<bool> IsTripRelevantByCountry(IEnumerable<GPSRecord> gpsRecords, string targetCountry)
         {
             if (!gpsRecords.Any())
@@ -62,6 +63,9 @@ namespace LogisticsTrack.Service.Services
             var durationHours = (gpsRecords.Last().Timestamp - gpsRecords.First().Timestamp).TotalHours;
             var rate = Math.Max(1, (int)durationHours); // Ensure at least one sample, adjust as needed
             return rate;
+
+            // Another example: sample one point for every 100 km of the trip
+            // or Border proximity analysis, or country inclusion logic
         } 
 
         private class GeocodeResponse

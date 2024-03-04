@@ -6,7 +6,7 @@ using System.Reflection;
 
 namespace LogisticsTrack.Database
 {
-
+    
     public class LogisticsContext : DbContext
     {
         public DbSet<Driver> Drivers { get; set; }
